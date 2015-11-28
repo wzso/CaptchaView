@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^CaptchaVerificationSuccessBlock)(NSString *verificationCode);
+typedef void(^CaptchaVerificationFailureBlock)();
+
 @interface CaptchaView : UIView
+
+@property (nonatomic) NSUInteger charactersCount;
+
+/** Designated Initializer
+ * @param frame
+ *
+ *
+ **/
+- (instancetype)initWithFrame:(CGRect)frame success:(CaptchaVerificationSuccessBlock)success failure:(CaptchaVerificationFailureBlock)failure;
 
 @end
