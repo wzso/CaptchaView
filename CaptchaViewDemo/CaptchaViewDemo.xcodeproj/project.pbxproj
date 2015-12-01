@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF6DE9E01C0DF23300A6B15B /* VFCaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DE9DF1C0DF23300A6B15B /* VFCaptchaView.m */; };
 		BF95F8611C08AC3700C0E802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8601C08AC3700C0E802 /* main.m */; };
 		BF95F8641C08AC3700C0E802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8631C08AC3700C0E802 /* AppDelegate.m */; };
 		BF95F8671C08AC3700C0E802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8661C08AC3700C0E802 /* ViewController.m */; };
@@ -15,7 +16,6 @@
 		BF95F86F1C08AC3700C0E802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF95F86D1C08AC3700C0E802 /* LaunchScreen.storyboard */; };
 		BF95F87A1C08AC3700C0E802 /* CaptchaViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8791C08AC3700C0E802 /* CaptchaViewDemoTests.m */; };
 		BF95F8851C08AC3700C0E802 /* CaptchaViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */; };
-		BF95F8951C08AC9200C0E802 /* VFCaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8941C08AC9200C0E802 /* VFCaptchaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF6DE9DE1C0DF23300A6B15B /* VFCaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFCaptchaView.h; sourceTree = "<group>"; };
+		BF6DE9DF1C0DF23300A6B15B /* VFCaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFCaptchaView.m; sourceTree = "<group>"; };
 		BF95F85C1C08AC3700C0E802 /* CaptchaViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptchaViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF95F8601C08AC3700C0E802 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF95F8621C08AC3700C0E802 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,8 +54,6 @@
 		BF95F8801C08AC3700C0E802 /* CaptchaViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptchaViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptchaViewDemoUITests.m; sourceTree = "<group>"; };
 		BF95F8861C08AC3700C0E802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF95F8931C08AC9200C0E802 /* VFCaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFCaptchaView.h; sourceTree = "<group>"; };
-		BF95F8941C08AC9200C0E802 /* VFCaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFCaptchaView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF6DE9DA1C0DF20800A6B15B /* VFCapchaView */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DE9DE1C0DF23300A6B15B /* VFCaptchaView.h */,
+				BF6DE9DF1C0DF23300A6B15B /* VFCaptchaView.m */,
+			);
+			path = VFCapchaView;
+			sourceTree = "<group>";
+		};
 		BF95F8531C08AC3700C0E802 = {
 			isa = PBXGroup;
 			children = (
@@ -104,11 +113,11 @@
 		BF95F85E1C08AC3700C0E802 /* CaptchaViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BF6DE9DA1C0DF20800A6B15B /* VFCapchaView */,
 				BF95F8621C08AC3700C0E802 /* AppDelegate.h */,
 				BF95F8631C08AC3700C0E802 /* AppDelegate.m */,
 				BF95F8651C08AC3700C0E802 /* ViewController.h */,
 				BF95F8661C08AC3700C0E802 /* ViewController.m */,
-				BF95F8921C08AC8000C0E802 /* CapchaView */,
 				BF95F8681C08AC3700C0E802 /* Main.storyboard */,
 				BF95F86B1C08AC3700C0E802 /* Assets.xcassets */,
 				BF95F86D1C08AC3700C0E802 /* LaunchScreen.storyboard */,
@@ -142,15 +151,6 @@
 				BF95F8861C08AC3700C0E802 /* Info.plist */,
 			);
 			path = CaptchaViewDemoUITests;
-			sourceTree = "<group>";
-		};
-		BF95F8921C08AC8000C0E802 /* CapchaView */ = {
-			isa = PBXGroup;
-			children = (
-				BF95F8931C08AC9200C0E802 /* VFCaptchaView.h */,
-				BF95F8941C08AC9200C0E802 /* VFCaptchaView.m */,
-			);
-			path = CapchaView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +285,8 @@
 			files = (
 				BF95F8671C08AC3700C0E802 /* ViewController.m in Sources */,
 				BF95F8641C08AC3700C0E802 /* AppDelegate.m in Sources */,
+				BF6DE9E01C0DF23300A6B15B /* VFCaptchaView.m in Sources */,
 				BF95F8611C08AC3700C0E802 /* main.m in Sources */,
-				BF95F8951C08AC9200C0E802 /* VFCaptchaView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@
     if (self) {
         self.layer.cornerRadius = 6.f;
         self.backgroundColor = RANDOM_COLOR;
+        
     }
     
     return self;
