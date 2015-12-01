@@ -11,7 +11,7 @@
 typedef void(^CaptchaVerificationSuccessBlock)(NSString *verificationCode);
 typedef void(^CaptchaVerificationFailureBlock)();
 
-@interface CaptchaView : UIView
+@interface VFCaptchaView : UIView
 
 @property (nonatomic) NSUInteger charactersCount;
 

@@ -15,7 +15,7 @@
 		BF95F86F1C08AC3700C0E802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF95F86D1C08AC3700C0E802 /* LaunchScreen.storyboard */; };
 		BF95F87A1C08AC3700C0E802 /* CaptchaViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8791C08AC3700C0E802 /* CaptchaViewDemoTests.m */; };
 		BF95F8851C08AC3700C0E802 /* CaptchaViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */; };
-		BF95F8951C08AC9200C0E802 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8941C08AC9200C0E802 /* CaptchaView.m */; };
+		BF95F8951C08AC9200C0E802 /* VFCaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8941C08AC9200C0E802 /* VFCaptchaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		BF95F8801C08AC3700C0E802 /* CaptchaViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptchaViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptchaViewDemoUITests.m; sourceTree = "<group>"; };
 		BF95F8861C08AC3700C0E802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF95F8931C08AC9200C0E802 /* CaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaView.h; sourceTree = "<group>"; };
-		BF95F8941C08AC9200C0E802 /* CaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaView.m; sourceTree = "<group>"; };
+		BF95F8931C08AC9200C0E802 /* VFCaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFCaptchaView.h; sourceTree = "<group>"; };
+		BF95F8941C08AC9200C0E802 /* VFCaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFCaptchaView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +147,8 @@
 		BF95F8921C08AC8000C0E802 /* CapchaView */ = {
 			isa = PBXGroup;
 			children = (
-				BF95F8931C08AC9200C0E802 /* CaptchaView.h */,
-				BF95F8941C08AC9200C0E802 /* CaptchaView.m */,
+				BF95F8931C08AC9200C0E802 /* VFCaptchaView.h */,
+				BF95F8941C08AC9200C0E802 /* VFCaptchaView.m */,
 			);
 			path = CapchaView;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				BF95F8671C08AC3700C0E802 /* ViewController.m in Sources */,
 				BF95F8641C08AC3700C0E802 /* AppDelegate.m in Sources */,
 				BF95F8611C08AC3700C0E802 /* main.m in Sources */,
-				BF95F8951C08AC9200C0E802 /* CaptchaView.m in Sources */,
+				BF95F8951C08AC9200C0E802 /* VFCaptchaView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +510,7 @@
 				BF95F88B1C08AC3700C0E802 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF95F88C1C08AC3700C0E802 /* Build configuration list for PBXNativeTarget "CaptchaViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +519,7 @@
 				BF95F88E1C08AC3700C0E802 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF95F88F1C08AC3700C0E802 /* Build configuration list for PBXNativeTarget "CaptchaViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +528,7 @@
 				BF95F8911C08AC3700C0E802 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

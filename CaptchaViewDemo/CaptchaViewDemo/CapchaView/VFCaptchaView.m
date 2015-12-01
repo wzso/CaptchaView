@@ -6,11 +6,11 @@
 //  Copyright © 2015 wenzhishen.com. All rights reserved.
 //
 
-#import "CaptchaView.h"
+#import "VFCaptchaView.h"
 
 #define RANDOM_COLOR [UIColor colorWithRed:arc4random_uniform(1000) / 1000.f green:arc4random_uniform(1000) / 1000.f blue:arc4random_uniform(1000) / 1000.f alpha:1.f]
 
-@implementation CaptchaView
+@implementation VFCaptchaView
 
 - (instancetype)initWithFrame:(CGRect)frame success:(CaptchaVerificationSuccessBlock)success failure:(CaptchaVerificationFailureBlock)failure {
     self = [super initWithFrame:frame];
