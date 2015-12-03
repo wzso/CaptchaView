@@ -13,29 +13,53 @@
 
 @interface VFCaptchaView ()
 @property (nonatomic, strong) NSArray *captchaCharacters;
+@property (nonatomic, copy) VFCaptchaVerificationSuccessBlock successCallback;
+@property (nonatomic, copy) VFCaptchaVerificationFailureBlock failureCallback;
+@property (nonatomic, copy) VFCaptchaVerificationAnalyser analyser;
 @end
 
 @implementation VFCaptchaView
 
 #pragma mark - Open API
-- (instancetype)initWithFrame:(CGRect)frame success:(VFCaptchaVerificationSuccessBlock)success failure:(VFCaptchaVerificationFailureBlock)failure {
+- (instancetype)initWithFrame:(CGRect)frame success:(VFCaptchaVerificationSuccessBlock)success failure:(VFCaptchaVerificationFailureBlock)failure withAnalyser:(VFCaptchaVerificationAnalyser)analyser {
     self = [super initWithFrame:frame];
     if (self) {
         self.layer.cornerRadius = 6.f;
         self.captchaCharacters = [self randomCaptchaCharacters];
+        
+        self.successCallback = success;
+        self.failureCallback = failure;
+        self.analyser = analyser;
     }
     
     return self;
 }
 
+- (void)beginVerification {
+    NSAssert(self.analyser, @"analyser must not be nil");
+    NSString *captchaCode = [self.captchaCharacters componentsJoinedByString:@""];
+    if (self.analyser(captchaCode)) {
+        if (self.successCallback) {
+            self.successCallback(captchaCode);
+        }
+    }
+    else {
+        if (self.failureCallback) {
+            self.failureCallback();
+        }
+    }
+}
+
 - (void)setCaptchaCode:(NSString *)captchaCode {
     self.captchaCharacters = [self charactersInString:captchaCode];
     self.codeLength = self.captchaCharacters.count;
+    NSLog(@"CAPTCHA CODE IS: %@", captchaCode);
     [self setNeedsDisplay];
 }
 
 - (void)randomlySetCaptchaCode {
     self.captchaCharacters = [self randomCaptchaCharacters];
+    NSLog(@"CAPTCHA CODE IS: %@", [self.captchaCharacters componentsJoinedByString:@""]);
     [self setNeedsDisplay];
 }
 
@@ -49,7 +73,6 @@
     u_int32_t count = (u_int32_t)array.count;
     for (int i = 0; i < self.codeLength; i ++) {
         NSString *character = array[arc4random_uniform(count)];
-        NSLog(@"%@", character);
         [captchaCharacters addObject:character];
     }
     
@@ -68,15 +91,14 @@
     CGFloat width = size.width;
     CGFloat height = size.height;
     u_int32_t widthDiff = (u_int32_t)(maxWidth - width);
-    u_int32_t heightDiff = (u_int32_t)(maxHeight - height);
-    
-    return CGRectMake(index * width + arc4random_uniform(widthDiff), arc4random_uniform(heightDiff), width, height);
+    u_int32_t heightDiff = (u_int32_t)fabs(maxHeight - height - 2.f);
+    return CGRectMake(index * (maxWidth + margin) + margin + arc4random_uniform(widthDiff), arc4random_uniform(heightDiff), width, height);
 }
 
 - (NSArray *)charactersInString:(NSString *)string {
     NSMutableArray *characters = [NSMutableArray array];
     for (int i = 0; i < string.length; i ++) {
-        [characters addObject:[NSString stringWithFormat:@"%c",[string characterAtIndex:i]]];
+        [characters addObject:[string substringWithRange:NSMakeRange(i, 1)]];
     }
     return characters;
 }
@@ -106,6 +128,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     self.captchaCharacters = [self randomCaptchaCharacters];
+    NSLog(@"CAPTCHA CODE IS: %@", [self.captchaCharacters componentsJoinedByString:@""]);
     [self setNeedsDisplay];
 }
 

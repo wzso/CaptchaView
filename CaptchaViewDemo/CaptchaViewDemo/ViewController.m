@@ -12,8 +12,9 @@
 #define SCREEN_WIDTH self.view.frame.size.width
 #define SCREEN_HEIGHT self.view.frame.size.height
 
-@interface ViewController ()
-
+@interface ViewController () <UITextFieldDelegate>
+@property (nonatomic, strong) VFCaptchaView *captchaView;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
 @end
 
 @implementation ViewController
@@ -21,14 +22,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    VFCaptchaView *captchaView = [[VFCaptchaView alloc] initWithFrame:CGRectMake(20.f, 40.f, SCREEN_WIDTH - 40.f, 40) success:^(NSString *verificationCode) {
-        NSLog(@"Wrong Code: %@. Go!", verificationCode);
+    
+    self.captchaView = [[VFCaptchaView alloc] initWithFrame:CGRectMake(20.f, 40.f, SCREEN_WIDTH - 40.f, 40) success:^(NSString *verificationCode) {
+        NSLog(@"Verification Succeeded!🤗");
     } failure:^{
-        NSLog(@"Right Code, Pity!");
+        NSLog(@"Verification Failed!😂");
+    } withAnalyser:^BOOL(NSString *verificationCode) {
+        return [verificationCode isEqualToString:self.textField.text];
     }];
-    [captchaView setCaptchaCode:@"你是一只老乌龟"];
-    captchaView.codeLength = 10;
-    [self.view addSubview:captchaView];
+    
+    [self.captchaView setCaptchaCode:@"ImagineADog"];
+    [self.view addSubview:self.captchaView];
+}
+
+#pragma mark - Target-Action
+- (IBAction)refreshCaptchaCode {
+    self.captchaView.codeLength = 5 + arc4random_uniform(4);
+    [self.captchaView randomlySetCaptchaCode];
+}
+
+- (IBAction)beginVerification {
+    if (self.textField.isFirstResponder) {
+        [self.textField resignFirstResponder];
+    }
+    [self.captchaView beginVerification];
+}
+
+- (IBAction)resignKeyboard {
+    if (self.textField.isFirstResponder) {
+        [self.textField resignFirstResponder];
+    }
+}
+
+#pragma mark - Delegate Methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.captchaView beginVerification];
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 @end

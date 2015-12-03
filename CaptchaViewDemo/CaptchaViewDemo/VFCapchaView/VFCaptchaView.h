@@ -10,6 +10,7 @@
 
 typedef void(^VFCaptchaVerificationSuccessBlock)(NSString *verificationCode);
 typedef void(^VFCaptchaVerificationFailureBlock)();
+typedef BOOL(^VFCaptchaVerificationAnalyser)(NSString *verificationCode);;
 
 @interface VFCaptchaView : UIView
 
@@ -38,9 +39,11 @@ typedef void(^VFCaptchaVerificationFailureBlock)();
  *  @param frame   a frame
  *  @param success callback on verification success
  *  @param failure callback on verification failure
+ *  @param analyser a block used to determine verification result, returning YES on success, NO on failure
  *
  *  @return initialized instance
  */
-- (instancetype)initWithFrame:(CGRect)frame success:(VFCaptchaVerificationSuccessBlock)success failure:(VFCaptchaVerificationFailureBlock)failure;
+- (instancetype)initWithFrame:(CGRect)frame success:(VFCaptchaVerificationSuccessBlock)success failure:(VFCaptchaVerificationFailureBlock)failure withAnalyser:(VFCaptchaVerificationAnalyser)analyser;
 
+- (void)beginVerification;
 @end
