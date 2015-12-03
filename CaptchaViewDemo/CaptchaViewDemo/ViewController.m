@@ -24,8 +24,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.captchaView = [[VFCaptchaView alloc] initWithFrame:CGRectMake(20.f, 40.f, SCREEN_WIDTH - 40.f, 40) success:^(NSString *verificationCode) {
+        // do things on verification success
         NSLog(@"Verification Succeeded!🤗");
     } failure:^{
+        // do things on verification failure
         NSLog(@"Verification Failed!😂");
     } withAnalyser:^BOOL(NSString *verificationCode) {
         return [verificationCode isEqualToString:self.textField.text];
