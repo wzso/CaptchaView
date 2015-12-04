@@ -114,10 +114,16 @@
     // draw characters
     [self.captchaCharacters enumerateObjectsUsingBlock:^(NSString *  _Nonnull character, NSUInteger idx, BOOL * _Nonnull stop) {
         CGFloat fontSize = RANDOM_FONT_SIZE;
-        NSString *fontName = familyNames[arc4random_uniform(namesCount)];
-        // the font to draw in.
-        UIFont *font = [UIFont fontWithName:fontName size:fontSize];
         
+        // the font to draw in.
+        
+#if 0   // to adapt variety of font
+        NSString *fontName = familyNames[arc4random_uniform(namesCount)];
+        NSLog(@"%@", fontName);
+        UIFont *font = [UIFont fontWithName:fontName size:fontSize];
+#else
+        UIFont *font = [UIFont systemFontOfSize:fontSize];
+#endif
         [character drawInRect:[weakSelf rectForCharacterInFont:font atIndex:idx] withAttributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName:RANDOM_COLOR}];
     }];
     
