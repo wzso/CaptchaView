@@ -1,0 +1,4 @@
+language: objective-c
+script:
+- xcodebuild -project CaptchaViewDemo/CaptchaViewDemo.xcodeproj -scheme CaptchaViewDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO test
+
