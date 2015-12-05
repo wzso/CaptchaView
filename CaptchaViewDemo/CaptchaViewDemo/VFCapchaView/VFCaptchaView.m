@@ -128,7 +128,6 @@
         [character drawInRect:[weakSelf rectForCharacterInFont:font atIndex:idx] withAttributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName:RANDOM_COLOR}];
     }];
     
-    
     // draw line for distraction
     u_int32_t maxWidth = (u_int32_t)rect.size.width;
     u_int32_t maxHeight = (u_int32_t)rect.size.height;
