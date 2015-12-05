@@ -48,6 +48,7 @@
         [self.textField resignFirstResponder];
     }
     [self.captchaView beginVerification];
+    [self.captchaView randomlySetCaptchaCode];
 }
 
 - (IBAction)resignKeyboard {
