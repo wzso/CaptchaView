@@ -43,11 +43,13 @@
         if (self.successCallback) {
             self.successCallback(captchaCode);
         }
+        [self randomlySetCaptchaCode];
     }
     else {
         if (self.failureCallback) {
             self.failureCallback();
         }
+        [self randomlySetCaptchaCode];
     }
 }
 

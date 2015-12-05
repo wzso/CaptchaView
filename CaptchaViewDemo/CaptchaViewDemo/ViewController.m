@@ -24,11 +24,34 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.captchaView = [[VFCaptchaView alloc] initWithFrame:CGRectMake(20.f, 40.f, SCREEN_WIDTH - 40.f, 40) success:^(NSString *verificationCode) {
+        NSString *title = @"Verification Succeeded!";
+        NSString *message = @"🤗";
+        NSString *cancelButtonTitle = @"Yeah";
         // do things on verification success
-        NSLog(@"Verification Succeeded!🤗");
+        if ([[UIDevice currentDevice].systemVersion floatValue] < 9.0) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil, nil];
+            [alertView show];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        
     } failure:^{
         // do things on verification failure
-        NSLog(@"Verification Failed!😂");
+        NSString *title = @"Verification Failed!";
+        NSString *message = @"😂";
+        NSString *cancelButtonTitle = @"Try Again";
+        // do things on verification success
+        if ([[UIDevice currentDevice].systemVersion floatValue] < 9.0) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil, nil];
+            [alertView show];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+
     } withAnalyser:^BOOL(NSString *verificationCode) {
         return [verificationCode isEqualToString:self.textField.text];
     }];
@@ -39,7 +62,7 @@
 
 #pragma mark - Target-Action
 - (IBAction)refreshCaptchaCode {
-    self.captchaView.codeLength = 5 + arc4random_uniform(4);
+    self.captchaView.codeLength = 8 + arc4random_uniform(4);
     [self.captchaView randomlySetCaptchaCode];
 }
 
@@ -48,7 +71,6 @@
         [self.textField resignFirstResponder];
     }
     [self.captchaView beginVerification];
-    [self.captchaView randomlySetCaptchaCode];
 }
 
 - (IBAction)resignKeyboard {
