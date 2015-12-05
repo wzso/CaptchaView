@@ -10,6 +10,7 @@
 
 #define RANDOM_COLOR [UIColor colorWithRed:arc4random_uniform(100) / 100.f green:arc4random_uniform(100) / 100.f blue:arc4random_uniform(100) / 100.f alpha:1.f]
 #define RANDOM_FONT_SIZE (arc4random_uniform(6) + 15)
+#define Lines_Count 5
 
 @interface VFCaptchaView ()
 @property (nonatomic, strong) NSArray *captchaCharacters;
@@ -127,8 +128,17 @@
         [character drawInRect:[weakSelf rectForCharacterInFont:font atIndex:idx] withAttributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName:RANDOM_COLOR}];
     }];
     
-    // draw line for disturbance
-#warning to be continued...
+    // draw line for distraction
+    u_int32_t maxWidth = (u_int32_t)rect.size.width;
+    u_int32_t maxHeight = (u_int32_t)rect.size.height;
+    for (int i = 0; i < Lines_Count; i ++) {
+        UIBezierPath *path = [[UIBezierPath alloc] init];
+        [path moveToPoint:CGPointMake(arc4random_uniform(maxWidth), arc4random_uniform(maxHeight))];
+        [path addLineToPoint:CGPointMake(arc4random_uniform(maxWidth), arc4random_uniform(maxHeight))];
+        [RANDOM_COLOR setStroke];
+        path.lineWidth = 1.f;
+        [path stroke];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
