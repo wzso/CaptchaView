@@ -15,7 +15,6 @@
 		BF95F86C1C08AC3700C0E802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF95F86B1C08AC3700C0E802 /* Assets.xcassets */; };
 		BF95F86F1C08AC3700C0E802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF95F86D1C08AC3700C0E802 /* LaunchScreen.storyboard */; };
 		BF95F87A1C08AC3700C0E802 /* CaptchaViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8791C08AC3700C0E802 /* CaptchaViewDemoTests.m */; };
-		BF95F8851C08AC3700C0E802 /* CaptchaViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +51,6 @@
 		BF95F8791C08AC3700C0E802 /* CaptchaViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptchaViewDemoTests.m; sourceTree = "<group>"; };
 		BF95F87B1C08AC3700C0E802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF95F8801C08AC3700C0E802 /* CaptchaViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptchaViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptchaViewDemoUITests.m; sourceTree = "<group>"; };
-		BF95F8861C08AC3700C0E802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +92,6 @@
 			children = (
 				BF95F85E1C08AC3700C0E802 /* CaptchaViewDemo */,
 				BF95F8781C08AC3700C0E802 /* CaptchaViewDemoTests */,
-				BF95F8831C08AC3700C0E802 /* CaptchaViewDemoUITests */,
 				BF95F85D1C08AC3700C0E802 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,15 +138,6 @@
 				BF95F87B1C08AC3700C0E802 /* Info.plist */,
 			);
 			path = CaptchaViewDemoTests;
-			sourceTree = "<group>";
-		};
-		BF95F8831C08AC3700C0E802 /* CaptchaViewDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BF95F8841C08AC3700C0E802 /* CaptchaViewDemoUITests.m */,
-				BF95F8861C08AC3700C0E802 /* Info.plist */,
-			);
-			path = CaptchaViewDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF95F8851C08AC3700C0E802 /* CaptchaViewDemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
