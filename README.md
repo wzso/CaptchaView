@@ -1,6 +1,8 @@
 VFCaptchaView v1.0.0 []
 本地授权码验证View
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 一个本地的授权码验证View
 
 Captcha View generated locally.
